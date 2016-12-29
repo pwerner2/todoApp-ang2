@@ -1,15 +1,18 @@
-import { Injectable } from '@angular/core';
-import { Todo } from './todo';
+/* tslint:disable:no-unused-variable */
+
+import {Injectable} from '@angular/core';
+import {Todo} from './todo';
 
 @Injectable()
 export class TodoDataService {
 
   //placeholder for last id to simulate automatic incrementing
   lastId: number = 0;
+
   //placeholder for todos
   todos: Todo[] = [];
 
-  constructor() { 
+  constructor() {
   }
 
   //simulate POST todos
@@ -46,15 +49,16 @@ export class TodoDataService {
   //simulate GET todos:id
   getTodoById(id: number): Todo {
     return this.todos
-      filter(todo => todo.id === id)
+      .filter(todo => todo.id === id)
       .pop();
   }
 
   //toggle todo complete
-  toggleTodoComplete(todo: Todo) {
-    let updateTodo = this.updateTodoById(todo.id, {
+  toggleTodoComplete(todo: Todo){
+    let updatedTodo = this.updateTodoById(todo.id, {
       complete: !todo.complete
     });
     return updatedTodo;
   }
+
 }
